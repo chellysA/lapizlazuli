@@ -19,15 +19,16 @@ const CarouselProduct = (props: CarouselProductProps) => {
     <div className="sm:px-16">
       <Carousel>
         <CarouselContent>
-          {images.map((image) => (
-            <CarouselItem key={image.id}>
-              <img
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
-                alt="Image product"
-                className="rounded-lg"
-              />
-            </CarouselItem>
-          ))}
+          {images?.length > 0 &&
+            images.map((image) => (
+              <CarouselItem key={image.id}>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+                  alt="Image product"
+                  className="rounded-lg"
+                />
+              </CarouselItem>
+            ))}
         </CarouselContent>
         <CarouselPrevious></CarouselPrevious>
         <CarouselNext></CarouselNext>

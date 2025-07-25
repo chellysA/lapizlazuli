@@ -16,6 +16,7 @@ const ChooseCategory = () => {
       <div className="grid gap-5 sm:grid-cols-3 overflow-hidden">
         {!loading &&
           result !== undefined &&
+          result?.length > 0 &&
           result.map(
             (category: CategoryType) => (
               console.log(category),
