@@ -1,3 +1,18 @@
+export type JewelryAttributes = {
+  __component: "product.jewelry-attributes";
+  id: number;
+  material?: string;
+};
+
+export type ClothingAttributes = {
+  __component: "product.clothing-attributes";
+  id: number;
+  color?: string;
+  size?: string;
+};
+
+export type ProductDetail = JewelryAttributes | ClothingAttributes;
+
 export type ProductType = {
   id: number;
   productName: string;
@@ -5,9 +20,8 @@ export type ProductType = {
   description: string;
   active: boolean;
   isFeatured: boolean;
-  color: string;
-  size: string;
   price: number;
+  details: ProductDetail[];
   images: {
     id: number;
     url: string;

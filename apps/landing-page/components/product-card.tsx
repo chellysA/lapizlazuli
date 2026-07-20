@@ -5,6 +5,7 @@ import { DivideCircle, Expand, ShoppingCart } from "lucide-react";
 import IconButton from "./icon-button";
 import { useRouter } from "next/navigation";
 import { formatPrice } from "@/lib/formarProce";
+import { getProductBadge, getProductSize } from "@/lib/product-attributes";
 
 type ProductCardProps = {
   product: ProductType;
@@ -12,6 +13,8 @@ type ProductCardProps = {
 const ProductCard = (props: ProductCardProps) => {
   const { product } = props;
   const router = useRouter();
+  const badge = getProductBadge(product);
+  const size = getProductSize(product);
 
   return (
     <Link
@@ -19,12 +22,16 @@ const ProductCard = (props: ProductCardProps) => {
       className="relative p-2 transition-all duration-100 rounded-lg hover:shadow-md"
     >
       <div className="absolute flex items-center justify-between gap-3 px-2 z-[1] top-4">
-        <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:tet-black w-fit">
-          {product.color}
-        </p>
-        <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full dark:bg-white dark:tet-black w-fit">
-          {product.size}
-        </p>
+        {badge && (
+          <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
+            {badge}
+          </p>
+        )}
+        {size && (
+          <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full dark:bg-white dark:tet-black w-fit">
+            {size}
+          </p>
+        )}
       </div>
       <Carousel opts={{ align: "start" }} className="w-full ma-w-sm">
         <CarouselContent>

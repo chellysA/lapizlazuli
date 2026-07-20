@@ -9,6 +9,7 @@ import ProductCard from "@/components/product-card";
 import { ProductType } from "@/types/product";
 import { useState } from "react";
 import FilterColor from "./components/filter-color";
+import { getProductColor, hasClothingAttributes } from "@/lib/product-attributes";
 
 export default function Page() {
   const params = useParams();
@@ -17,12 +18,17 @@ export default function Page() {
   const router = useRouter();
   const [filterColor, SetFilterColor] = useState("");
 
+  const showColorFilter =
+    result !== null && !loading && result.some(hasClothingAttributes);
+
   const filteredProducts =
     result !== null &&
     !loading &&
     (filterColor === ""
       ? result
-      : result.filter((product: ProductType) => product.color === filterColor));
+      : result.filter(
+          (product: ProductType) => getProductColor(product) === filterColor
+        ));
 
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
@@ -31,7 +37,9 @@ export default function Page() {
       )}
       <Separator />
       <div className="sm:flex sm:justify-between">
-        <FiltersControlCategory setFilterColor={SetFilterColor} />
+        {showColorFilter && (
+          <FiltersControlCategory setFilterColor={SetFilterColor} />
+        )}
         <div className="grid gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
           {loading && <SkeletonSchema grid={3} />}
           {filteredProducts !== null &&

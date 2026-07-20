@@ -4,6 +4,7 @@ import { useCart } from "@/hooks/use-cart";
 import { useLovedProducts } from "@/hooks/use-loved-products";
 import { formatPrice } from "@/lib/formarProce";
 import { ProductType } from "@/types/product";
+import { getProductColor, getProductSize } from "@/lib/product-attributes";
 import { Heart } from "lucide-react";
 export type InfoProductProps = {
   product: ProductType;
@@ -12,18 +13,24 @@ const InfoProduct = (props: InfoProductProps) => {
   const { product } = props;
   const { addItem } = useCart();
   const { addLoveItem } = useLovedProducts();
+  const color = getProductColor(product);
+  const size = getProductSize(product);
 
   return (
     <div className="px-6">
       <div className="justify-between mb-3 sm:flex">
         <h1 className="text-2xl">{product.productName}</h1>
         <div className="flex items-center justify-between gap-3">
-          <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
-            {product.color}
-          </p>
-          <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full">
-            {product.size}
-          </p>
+          {color && (
+            <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
+              {color}
+            </p>
+          )}
+          {size && (
+            <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full">
+              {size}
+            </p>
+          )}
         </div>
       </div>
       <Separator className="my-4" />

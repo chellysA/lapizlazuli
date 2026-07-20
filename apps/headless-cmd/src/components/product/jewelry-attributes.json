@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_product_jewelry_attributes",
+  "info": {
+    "displayName": "Atributos de Bisutería",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "material": {
+      "type": "enumeration",
+      "enum": ["Goldfilled"],
+      "required": false
+    }
+  }
+}

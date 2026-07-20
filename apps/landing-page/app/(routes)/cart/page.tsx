@@ -3,29 +3,46 @@
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formarProce";
-import { Separator } from "@radix-ui/react-separator";
+import { Separator } from "@/components/ui/separator";
 import CartItem from "./components/cart-item";
-import { loadStripe } from "@stripe/stripe-js";
-import { makePaymentRequest } from "@/api/payments";
+import { ProductType } from "@/types/product";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
+
+function buildWhatsAppMessage(products: ProductType[], totalPrice: number) {
+  const itemsById = new Map<number, { product: ProductType; quantity: number }>();
+  products.forEach((product) => {
+    const existing = itemsById.get(product.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      itemsById.set(product.id, { product, quantity: 1 });
+    }
+  });
+
+  const lines = Array.from(itemsById.values()).map(
+    ({ product, quantity }) =>
+      `- ${product.productName} x${quantity} - ${formatPrice(
+        product.price
+      )} c/u - Subtotal: ${formatPrice(product.price * quantity)}`
+  );
+
+  return [
+    "¡Hola! Quiero finalizar la compra de los siguientes productos:",
+    "",
+    ...lines,
+    "",
+    `Total: ${formatPrice(totalPrice)}`,
+  ].join("\n");
+}
 
 export default function Page() {
   const { items, removeAll } = useCart();
   const prices = items.map((product) => product.price);
   const totalPrice = prices.reduce((total, price) => total + price, 0);
-  const stripePromise = loadStripe(
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
-  );
-  const buyStripe = async () => {
-    try {
-      const stripe = await stripePromise;
-      const res = await makePaymentRequest.post("/api/orders", {
-        products: items,
-      });
 
-      await stripe?.redirectToCheckout({
-        sessionId: res.data.stripeSession.id,
-      });
-    } catch (error) {}
+  const handleWhatsAppCheckout = () => {
+    const message = buildWhatsAppMessage(items, totalPrice);
+    window.open(getWhatsAppUrl(message), "_blank");
   };
 
   return (
@@ -52,11 +69,10 @@ export default function Page() {
             <div className="flex items-center justify-center w-full mt-3">
               <Button
                 className="w-full cursor-pointer"
-                onClick={() => {
-                  buyStripe;
-                }}
+                disabled={items.length === 0}
+                onClick={handleWhatsAppCheckout}
               >
-                Comprar
+                Finalizar compra
               </Button>
             </div>
           </div>

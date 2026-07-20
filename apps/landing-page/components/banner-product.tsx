@@ -7,10 +7,10 @@ const BannerProduct = () => {
       <div className="mt-4 text-center">
         <p>Prendas unicas y a tu medida</p>
         <h4 className="mt-2 text-5xl font-extrabold uppercase">
-          <span className="text-primary">Lapislazuli</span>
+          <span className="text-primary">lapislázuli</span>
         </h4>
         <p className="mb-4">Moda modesta y con estilo</p>
-        <Link href="#" className={buttonVariants()}>
+        <Link href="/cart" className={buttonVariants()}>
           Comprar
         </Link>
       </div>

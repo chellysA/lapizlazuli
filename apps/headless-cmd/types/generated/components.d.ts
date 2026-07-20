@@ -1,5 +1,28 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ProductClothingAttributes extends Struct.ComponentSchema {
+  collectionName: 'components_product_clothing_attributes';
+  info: {
+    displayName: 'Atributos de Ropa';
+    icon: 'shirt';
+  };
+  attributes: {
+    color: Schema.Attribute.Enumeration<['Gold', 'Silver']>;
+    size: Schema.Attribute.String;
+  };
+}
+
+export interface ProductJewelryAttributes extends Struct.ComponentSchema {
+  collectionName: 'components_product_jewelry_attributes';
+  info: {
+    displayName: 'Atributos de Bisuter\u00EDa';
+    icon: 'star';
+  };
+  attributes: {
+    material: Schema.Attribute.Enumeration<['Goldfilled']>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +88,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'product.clothing-attributes': ProductClothingAttributes;
+      'product.jewelry-attributes': ProductJewelryAttributes;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

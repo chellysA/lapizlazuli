@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_product_clothing_attributes",
+  "info": {
+    "displayName": "Atributos de Ropa",
+    "icon": "shirt"
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "enumeration",
+      "enum": ["Gold", "Silver"],
+      "required": false
+    },
+    "size": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

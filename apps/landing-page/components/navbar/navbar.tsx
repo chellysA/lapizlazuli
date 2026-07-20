@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between p-4 mx-auto cursor-pointer sm:max-w-4xl md:max-w-6xl">
       <h1 className="text-3xl font-bold" onClick={() => router.push("/")}>
-        Lapislazuli
+        lapislázuli
       </h1>
       <div className="items-center justify-between hidden sm:flex">
         <MenuList />
@@ -42,7 +42,7 @@ const Navbar = () => {
           }`}
           onClick={() => router.push("/loved-products")}
         />
-        <User strokeWidth={1} className="cursor-pointer" />
+        {/* <User strokeWidth={1} className="cursor-pointer" /> */}
         <ToggleTheme />
       </div>
     </div>

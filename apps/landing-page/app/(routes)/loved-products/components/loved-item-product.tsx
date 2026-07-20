@@ -4,6 +4,7 @@ import { useLovedProducts } from "@/hooks/use-loved-products";
 import { formatPrice } from "@/lib/formarProce";
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/types/product";
+import { getProductColor, getProductSize } from "@/lib/product-attributes";
 import { DivideCircle, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -15,6 +16,8 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
   const router = useRouter();
   const { removeLovedItem } = useLovedProducts();
   const { addItem } = useCart();
+  const color = getProductColor(product);
+  const size = getProductSize(product);
 
   const addToCheckout = () => {
     addItem(product);
@@ -35,12 +38,16 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
             <h2 className="text-lg font-bold">{product.productName}</h2>
             <p className="font-bold">{formatPrice(product.price)}</p>
             <div className="flex items-center justify-between gap-3">
-              <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
-                {product.color}
-              </p>
-              <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full w-fit">
-                {product.size}
-              </p>
+              {color && (
+                <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
+                  {color}
+                </p>
+              )}
+              {size && (
+                <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full w-fit">
+                  {size}
+                </p>
+              )}
             </div>
             <Button
               className="mt-5 rounded-full"

@@ -37,33 +37,21 @@
     "price": {
       "type": "decimal"
     },
-    "size": {
-      "type": "enumeration",
-      "enum": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL",
-        "XXXL"
-      ]
-    },
-    "color": {
-      "type": "enumeration",
-      "enum": [
-        "Black",
-        "White",
-        "Red",
-        "Yellow"
-      ]
-    },
     "isFeatured": {
       "type": "boolean"
     },
     "category": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category"
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "details": {
+      "type": "dynamiczone",
+      "components": [
+        "product.jewelry-attributes",
+        "product.clothing-attributes"
+      ]
     }
   }
 }

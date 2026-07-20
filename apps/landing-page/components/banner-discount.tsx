@@ -5,14 +5,13 @@ const BannerDiscount = () => {
   return (
     <div className="p-5 sm:p-20 text-center">
       <h2 className="uppercase font-black text-2xl text-primary">
-        Consigue hasta un -25%
+        Compra lo que necesitas y ayuda a los que más lo necesitan.
       </h2>
-      <h3>20% al gastar 100$o 25% al gastar 150$</h3>
       <div className="max-w-md mx-auto sm:flex justify-center gap-8 mt-5">
-        <Link href="#" className={buttonVariants()}>
+        <Link href="/cart" className={buttonVariants()}>
           Comprar
         </Link>
-        <Link href="#" className={buttonVariants({ variant: "outline" })}>
+        <Link href="/about" className={buttonVariants({ variant: "outline" })}>
           Mas informacion
         </Link>
       </div>

@@ -35,7 +35,7 @@ const CarouselBanner = () => {
   const [indexSlider, setIndexSlider] = useState(0);
   const [index, setIndex] = useState(0);
   const onPrevBtn = () => {
-    const imgSlider = document.querySelector("#imgSlider");
+    const imgSlider = document.querySelector<HTMLElement>("#imgSlider");
     const imgBg = document.querySelectorAll("#imgBg");
 
     const newIndex = index - 1 + imgBg.length;
@@ -51,7 +51,7 @@ const CarouselBanner = () => {
   };
 
   const onNextBtn = () => {
-    const imgSlider = document.querySelector("#imgSlider");
+    const imgSlider = document.querySelector<HTMLElement>("#imgSlider");
     const imgBg = document.querySelectorAll("#imgBg");
 
     // Incrementar el índice
