@@ -1,0 +1,71 @@
+@keyframes bounce {
+  0% {
+    translate: 0;
+  }
+
+  50% {
+    translate: -40px;
+  }
+  100% {
+    translate: 0;
+  }
+}
+.carousel {
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.imgBox {
+  position: absolute;
+
+  width: 1600px;
+  height: 1600px;
+  bottom: -1090px;
+}
+
+.imgBox .imgList {
+  height: inherit;
+  transform: rotate(90deg);
+}
+
+.imgList .imgSlider {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.imgSlider .imgItem {
+  position: absolute;
+  left: 0;
+  transform-origin: 800px;
+}
+
+.imgItem.imgBg img {
+  transform: rotate(-90deg) translateY(-30%);
+  transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation: bounce 4s ease-in-out infinite;
+}
+
+.navigation {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.navigation span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(14, 10, 10, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+}
