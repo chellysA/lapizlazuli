@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { ProductType } from "@/types/product";
 import { getProductColor, getProductSize } from "@/lib/product-attributes";
 import { X } from "lucide-react";
-import { Playwrite_CA } from "next/font/google";
 import { useRouter } from "next/navigation";
 
 interface CartItemProps {

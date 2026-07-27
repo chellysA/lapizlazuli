@@ -5,7 +5,7 @@ import { formatPrice } from "@/lib/formarProce";
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/types/product";
 import { getProductColor, getProductSize } from "@/lib/product-attributes";
-import { DivideCircle, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface LovedItemProductProps {

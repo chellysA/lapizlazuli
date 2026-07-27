@@ -1,7 +1,7 @@
 import { ProductType } from "@/types/product";
 import Link from "next/link";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
-import { DivideCircle, Expand, ShoppingCart } from "lucide-react";
+import { Expand, ShoppingCart } from "lucide-react";
 import IconButton from "./icon-button";
 import { useRouter } from "next/navigation";
 import { formatPrice } from "@/lib/formarProce";

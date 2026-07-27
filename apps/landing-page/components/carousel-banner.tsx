@@ -32,7 +32,6 @@ export const dataCarouselTop = [
 ];
 
 const CarouselBanner = () => {
-  const [indexSlider, setIndexSlider] = useState(0);
   const [index, setIndex] = useState(0);
   const onPrevBtn = () => {
     const imgSlider = document.querySelector<HTMLElement>("#imgSlider");
@@ -40,7 +39,6 @@ const CarouselBanner = () => {
 
     const newIndex = index - 1 + imgBg.length;
     setIndex(newIndex);
-    setIndexSlider((prevIndexSlider) => prevIndexSlider - 1);
 
     if (imgSlider) {
       imgSlider.style.transform = `rotate(${newIndex * -90}deg)`;
@@ -57,7 +55,6 @@ const CarouselBanner = () => {
     // Incrementar el índice
     const newIndex = (index + 1) % imgBg.length;
     setIndex(newIndex);
-    setIndexSlider((prevIndexSlider) => prevIndexSlider + 1);
 
     if (imgSlider) {
       imgSlider.style.transform = `rotate(${(index + 1) * -90}deg)`;

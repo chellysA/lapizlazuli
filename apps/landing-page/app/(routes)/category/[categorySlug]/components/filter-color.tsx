@@ -7,7 +7,7 @@ type FilterColorProps = {
 };
 const FilterColor = (props: FilterColorProps) => {
   const { setFilterColor } = props;
-  const { result, loading }: FilterTypes = useGetProductField();
+  const { result }: FilterTypes = useGetProductField();
   return (
     <div className="my-5">
       <p className="mb-3 font-bold">Color</p>
