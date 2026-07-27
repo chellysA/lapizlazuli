@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "opennextjs-cloudflare build",
+    "pages:preview": "opennextjs-cloudflare preview",
+    "pages:deploy": "opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.7",
@@ -46,6 +49,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@opennextjs/cloudflare": "^1.20.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -53,6 +57,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.114.0"
   }
 }
