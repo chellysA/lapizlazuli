@@ -27,7 +27,7 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
     <li className="flex py-6 border-b">
       <div onClick={() => router.push(`/product/${product.slug}`)}>
         <img
-          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
+          src={`${product.images[0].url}`}
           alt="Product"
           className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"
         />
@@ -60,7 +60,7 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
         <div>
           <button
             className={cn(
-              "rounded-full flex items-center justify-center bg-white border shadow-md p-1 hover-scale-110 transition"
+              "rounded-full flex items-center justify-center bg-white border shadow-md p-1 hover-scale-110 transition",
             )}
           >
             <X size={20} onClick={() => removeLovedItem(product.id)} />

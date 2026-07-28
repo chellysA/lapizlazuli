@@ -26,13 +26,13 @@ const ChooseCategory = () => {
                   href={`/category/${category.slug}`}
                   className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                   style={{
-                    backgroundImage: `url('${process.env.NEXT_PUBLIC_BACKEND_URL}${category.images[0].url}')`,
+                    backgroundImage: `url('${category.images[0].url}')`,
                   }}
                   title={category.name}
                   data-cy="category"
                 >
                   <img
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${category.images[0].url}`}
+                    src={`${category.images[0].url}`}
                     alt={category.name}
                     className="max-w-[270px] transition duration-300 ease-in-out hover:scale-110 rounded-lg"
                   />
@@ -41,7 +41,7 @@ const ChooseCategory = () => {
                   </p>
                 </Link>
               )
-            )
+            ),
           )}
       </div>
     </div>

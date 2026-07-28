@@ -44,7 +44,7 @@ const FeaturedProducts = () => {
                     <Card className="flex flex-col h-full py-4 border border-gray-200 shadow-none">
                       <CardContent className="relative flex items-center justify-center px-6 py-2 h-80 shrink-0 overflow-hidden">
                         <img
-                          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].url}`}
+                          src={`${images[0].url}`}
                           alt="Image featured"
                           className="object-cover w-full h-full rounded-md"
                         />
