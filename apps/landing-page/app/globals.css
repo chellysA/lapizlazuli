@@ -3,6 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --animate-carousel-bounce: carousel-bounce 4s ease-in-out infinite;
+}
+
+@keyframes carousel-bounce {
+  0% {
+    translate: 0;
+  }
+  50% {
+    translate: -40px;
+  }
+  100% {
+    translate: 0;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
