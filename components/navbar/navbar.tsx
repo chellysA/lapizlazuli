@@ -12,7 +12,7 @@ const Navbar = () => {
   const cart = useCart();
   const { lovedItems } = useLovedProducts();
   return (
-    <div className="flex items-center justify-between p-4 mx-auto cursor-pointer sm:max-w-4xl md:max-w-6xl">
+    <div className="flex items-center justify-between p-4 mx-auto cursor-pointer">
       <h1 className="text-3xl font-bold" onClick={() => router.push("/")}>
         lapislázuli
       </h1>

@@ -175,7 +175,7 @@ const CarouselBanner = () => {
         </div>
       </div>
       {/* Info box */}
-      <div className="flex flex-col absolute left-4 top-4 sm:left-8 sm:top-4 bottom-20 sm:bottom-5 w-1/2 sm:w-1/3">
+      <div className="flex flex-col absolute left-4 top-4 w-1/2 sm:w-1/3">
         <div className="flex flex-col justify-center text-left text-black dark:text-white">
           <div className="info-item">
             <h2 className="text-xl font-bold mb-2">{currentData?.title}</h2>
