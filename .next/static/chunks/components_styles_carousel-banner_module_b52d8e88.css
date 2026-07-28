@@ -1,0 +1,98 @@
+/* [project]/components/styles/carousel-banner.module.css [app-client] (css) */
+@keyframes carousel-banner-module___qPhia__bounce {
+  0% {
+    translate: 0;
+  }
+
+  50% {
+    translate: -40px;
+  }
+
+  100% {
+    translate: 0;
+  }
+}
+
+.carousel-banner-module___qPhia__carousel {
+  --carousel-size: clamp(480px, 100vw, 1600px);
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-banner-module___qPhia__imgBox {
+  position: absolute;
+  left: 50%;
+  width: var(--carousel-size);
+  height: var(--carousel-size);
+  bottom: calc(var(--carousel-size) * -.68125);
+  transform: translateX(-50%);
+}
+
+.carousel-banner-module___qPhia__imgBox .carousel-banner-module___qPhia__imgList {
+  height: inherit;
+  transform: rotate(90deg);
+}
+
+.carousel-banner-module___qPhia__imgList .carousel-banner-module___qPhia__imgSlider {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s cubic-bezier(.645, .045, .355, 1);
+}
+
+.carousel-banner-module___qPhia__imgSlider .carousel-banner-module___qPhia__imgItem {
+  position: absolute;
+  left: 0;
+  transform-origin: calc(var(--carousel-size) / 2);
+}
+
+.carousel-banner-module___qPhia__imgItem img {
+  width: calc(var(--carousel-size) * .255);
+  max-width: none;
+  height: auto;
+}
+
+.carousel-banner-module___qPhia__imgItem.carousel-banner-module___qPhia__imgBg img {
+  width: calc(var(--carousel-size) * .3125);
+  transform: rotate(-90deg)translateY(-30%);
+  transition: all .5s cubic-bezier(.645, .045, .355, 1);
+  animation: 4s ease-in-out infinite carousel-banner-module___qPhia__bounce;
+}
+
+.carousel-banner-module___qPhia__navigation {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.carousel-banner-module___qPhia__navigation span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: #0e0a0a33;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (width <= 640px) {
+  .carousel-banner-module___qPhia__navigation span {
+    width: 48px;
+    height: 48px;
+  }
+
+  .carousel-banner-module___qPhia__navigation span svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/*# sourceMappingURL=components_styles_carousel-banner_module_b52d8e88.css.map*/
