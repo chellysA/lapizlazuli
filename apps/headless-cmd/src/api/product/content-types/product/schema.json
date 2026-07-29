@@ -50,7 +50,7 @@
         "product.clothing-attributes"
       ]
     },
-    "description": {
+    "descriptionrich": {
       "type": "blocks"
     }
   }
