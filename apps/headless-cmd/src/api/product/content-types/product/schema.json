@@ -17,9 +17,6 @@
     "slug": {
       "type": "uid"
     },
-    "description": {
-      "type": "text"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -52,6 +49,9 @@
         "product.jewelry-attributes",
         "product.clothing-attributes"
       ]
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }
