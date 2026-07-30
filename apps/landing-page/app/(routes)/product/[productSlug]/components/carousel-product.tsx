@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ImageMagnifier from "@/components/image-magnifier";
 
 interface CarouselProductProps {
   images: {
@@ -22,8 +23,8 @@ const CarouselProduct = (props: CarouselProductProps) => {
           {images?.length > 0 &&
             images.map((image) => (
               <CarouselItem key={image.id}>
-                <img
-                  src={`${image.url}`}
+                <ImageMagnifier
+                  src={image.url}
                   alt="Image product"
                   className="rounded-lg"
                 />
