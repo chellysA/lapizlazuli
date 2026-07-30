@@ -1,29 +1,18 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/hooks/use-cart";
+import { CartItem as CartItemType, useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formarProce";
 import { Separator } from "@/components/ui/separator";
 import CartItem from "./components/cart-item";
-import { ProductType } from "@/types/product";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
-function buildWhatsAppMessage(products: ProductType[], totalPrice: number) {
-  const itemsById = new Map<number, { product: ProductType; quantity: number }>();
-  products.forEach((product) => {
-    const existing = itemsById.get(product.id);
-    if (existing) {
-      existing.quantity += 1;
-    } else {
-      itemsById.set(product.id, { product, quantity: 1 });
-    }
-  });
-
-  const lines = Array.from(itemsById.values()).map(
-    ({ product, quantity }) =>
-      `- ${product.productName} x${quantity} - ${formatPrice(
+function buildWhatsAppMessage(products: CartItemType[], totalPrice: number) {
+  const lines = products.map(
+    (product) =>
+      `- ${product.productName} x${product.quantity} - ${formatPrice(
         product.price
-      )} c/u - Subtotal: ${formatPrice(product.price * quantity)}`
+      )} c/u - Subtotal: ${formatPrice(product.price * product.quantity)}`
   );
 
   return [
@@ -37,8 +26,10 @@ function buildWhatsAppMessage(products: ProductType[], totalPrice: number) {
 
 export default function Page() {
   const { items } = useCart();
-  const prices = items.map((product) => product.price);
-  const totalPrice = prices.reduce((total, price) => total + price, 0);
+  const totalPrice = items.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   const handleWhatsAppCheckout = () => {
     const message = buildWhatsAppMessage(items, totalPrice);

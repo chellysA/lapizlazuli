@@ -1,18 +1,17 @@
-import { useCart } from "@/hooks/use-cart";
+import { CartItem as CartItemType, useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formarProce";
 import { cn } from "@/lib/utils";
-import { ProductType } from "@/types/product";
 import { getProductColor, getProductSize } from "@/lib/product-attributes";
-import { X } from "lucide-react";
+import { Minus, Plus, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface CartItemProps {
-  product: ProductType;
+  product: CartItemType;
 }
 const CartItem = (props: CartItemProps) => {
   const { product } = props;
   const router = useRouter();
-  const { removeItem } = useCart();
+  const { removeItem, increaseQuantity, decreaseQuantity } = useCart();
   const color = getProductColor(product);
   const size = getProductSize(product);
 
@@ -32,7 +31,7 @@ const CartItem = (props: CartItemProps) => {
         <div>
           <h2 className="text-lg font-bold">{product.productName}</h2>
           <p className="font-bold">{formatPrice(product.price)}</p>
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 mt-2">
             {size && (
               <p className="px-2 py-1 text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
                 {size}
@@ -43,6 +42,31 @@ const CartItem = (props: CartItemProps) => {
                 {color}
               </p>
             )}
+          </div>
+          <div className="flex items-center gap-3 mt-3">
+            <div className="flex items-center border rounded-full">
+              <button
+                type="button"
+                className="p-1.5 disabled:opacity-40 disabled:cursor-not-allowed"
+                disabled={product.quantity <= 1}
+                onClick={() => decreaseQuantity(product.id)}
+                aria-label="Disminuir cantidad"
+              >
+                <Minus size={16} className="cursor-pointer" />
+              </button>
+              <span className="w-6 text-center">{product.quantity}</span>
+              <button
+                type="button"
+                className="p-1.5"
+                onClick={() => increaseQuantity(product.id)}
+                aria-label="Aumentar cantidad"
+              >
+                <Plus size={16} className="cursor-pointer" />
+              </button>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Subtotal: {formatPrice(product.price * product.quantity)}
+            </p>
           </div>
         </div>
         <div>

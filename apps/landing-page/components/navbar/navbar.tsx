@@ -13,6 +13,10 @@ const Navbar = () => {
   const router = useRouter();
   const cart = useCart();
   const { lovedItems } = useLovedProducts();
+  const cartQuantity = cart.items.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   return (
     <div className="flex items-center justify-between p-4 mx-auto cursor-pointer">
       <h1 className="text-3xl font-bold" onClick={() => router.push("/")}>
@@ -34,7 +38,7 @@ const Navbar = () => {
         ) : (
           <div className="flex gap-1" onClick={() => router.push("/cart")}>
             <BaggageClaim strokeWidth={1} className="cursor-pointer" />
-            <span>{cart.items.length}</span>
+            <span>{cartQuantity}</span>
           </div>
         )}
         <Heart
