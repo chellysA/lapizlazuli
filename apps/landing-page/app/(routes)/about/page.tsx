@@ -1,6 +1,8 @@
 import { Separator } from "@/components/ui/separator";
 import JoinMovement from "@/components/join-movement";
+import InstagramIcon from "@/components/icons/instagram-icon";
 import Link from "next/link";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 export const metadata = {
   title: "Nuestra Causa | Lapislázuli",
@@ -70,6 +72,15 @@ export default function AboutPage() {
         >
           Ver productos
         </Link>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 mt-4 text-sm font-medium hover:underline"
+        >
+          <InstagramIcon size={18} strokeWidth={1.5} />
+          Síguenos en Instagram
+        </a>
       </div>
 
       <div className="-mx-6 sm:-mx-24">

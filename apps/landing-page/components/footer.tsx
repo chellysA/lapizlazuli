@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Separator } from "./ui/separator";
+import InstagramIcon from "./icons/instagram-icon";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const dataFooter = [
   { id: 1, name: "Sobre Nosotros", link: "/about" },
@@ -35,6 +37,16 @@ const Footer = () => {
                 <Link href={item.link}>{item.name}</Link>
               </li>
             ))}
+            <li>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Síguenos en Instagram"
+              >
+                <InstagramIcon size={20} strokeWidth={1.5} />
+              </a>
+            </li>
           </ul>
         </div>
         <Separator className="my-6 border-gray-200 dark:border-gray-700 lg:my-8 " />

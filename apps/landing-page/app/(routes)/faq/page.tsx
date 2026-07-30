@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { ChevronDown } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const BRAND_JOIN_MESSAGE =
   "Hola, quiero sumar mi marca a Lapislázuli y ser parte del movimiento.";
@@ -26,6 +27,10 @@ const faqs = [
     question: "¿Cómo puedo estar seguro de a dónde van los fondos y donativos?",
     answer:
       "La transparencia es nuestro valor principal. Documentamos y compartimos periódicamente, a través de nuestras redes sociales y canales oficiales, las entregas de donativos y el impacto real que logramos juntos gracias a tu compra.",
+    cta: {
+      label: "Síguenos en Instagram",
+      href: INSTAGRAM_URL,
+    },
   },
   {
     question: "¿Cuáles son los métodos de pago disponibles?",

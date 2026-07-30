@@ -4,8 +4,10 @@ import { useRouter } from "next/navigation";
 import MenuList from "./menu-list";
 import ItemsMenuMobile from "./items-menu-mobile";
 import ToggleTheme from "../theme/toggle-theme";
+import InstagramIcon from "../icons/instagram-icon";
 import { useCart } from "@/hooks/use-cart";
 import { useLovedProducts } from "@/hooks/use-loved-products";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const Navbar = () => {
   const router = useRouter();
@@ -43,6 +45,14 @@ const Navbar = () => {
           onClick={() => router.push("/loved-products")}
         />
         {/* <User strokeWidth={1} className="cursor-pointer" /> */}
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Síguenos en Instagram"
+        >
+          <InstagramIcon strokeWidth={1} className="cursor-pointer" />
+        </a>
         <ToggleTheme />
       </div>
     </div>
