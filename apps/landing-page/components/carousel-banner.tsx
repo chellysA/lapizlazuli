@@ -54,14 +54,14 @@ const CarouselBanner = () => {
   if (loading || total === 0) {
     return (
       <div
-        className={`relative overflow-hidden h-[50vh] sm:h-[90vh] dark:bg-black bg-[#eeebc7] ${CAROUSEL_SIZE}`}
+        className={`relative overflow-hidden h-[50vh] sm:h-[90vh] dark:bg-[#B39EB5] bg-[#eeebc7] ${CAROUSEL_SIZE}`}
       />
     );
   }
 
   return (
     <div
-      className={`relative overflow-hidden h-[50vh] sm:h-[90vh] dark:bg-black bg-[#eeebc7] ${CAROUSEL_SIZE}`}
+      className={`relative overflow-hidden h-[50vh] sm:h-[90vh] dark:bg-[#B39EB5] bg-[#eeebc7] ${CAROUSEL_SIZE}`}
     >
       <div
         className={`absolute left-1/2 -translate-x-1/2 w-[var(--carousel-size)] h-[var(--carousel-size)] bottom-[calc(var(--carousel-size)*-0.68125)]`}
