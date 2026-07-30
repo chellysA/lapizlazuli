@@ -6,6 +6,7 @@ import { formatPrice } from "@/lib/formarProce";
 import { ProductType } from "@/types/product";
 import { getProductColor, getProductSize } from "@/lib/product-attributes";
 import { Heart } from "lucide-react";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 export type InfoProductProps = {
   product: ProductType;
 };
@@ -34,7 +35,7 @@ const InfoProduct = (props: InfoProductProps) => {
         </div>
       </div>
       <Separator className="my-4" />
-      <p>{product.description}</p>
+      <BlocksRenderer content={product.description} />
       <Separator className="my-4" />
 
       <p className="my-4 text-2xl">{formatPrice(product.price)}</p>
