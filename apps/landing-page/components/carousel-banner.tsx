@@ -19,7 +19,7 @@ const CarouselBanner = () => {
   const showArrows = total > 1;
 
   const [index, setIndex] = useState(0);
-\
+
   useEffect(() => {
     setIndex(0);
   }, [total]);
