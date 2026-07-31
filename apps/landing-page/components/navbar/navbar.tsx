@@ -15,7 +15,7 @@ const Navbar = () => {
   const { lovedItems } = useLovedProducts();
   const cartQuantity = cart.items.reduce(
     (total, item) => total + item.quantity,
-    0
+    0,
   );
   return (
     <div className="flex items-center justify-between p-4 mx-auto cursor-pointer">
@@ -57,7 +57,7 @@ const Navbar = () => {
         >
           <InstagramIcon strokeWidth={1} className="cursor-pointer" />
         </a>
-        <ToggleTheme />
+        {/* <ToggleTheme /> */}
       </div>
     </div>
   );
