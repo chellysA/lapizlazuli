@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import Link from "next/link";
 import SkeletonSchema from "./skeletonSchema";
 import { ProductType } from "@/types/product";
 import { Card, CardContent } from "./ui/card";
@@ -40,7 +41,7 @@ const FeaturedProducts = () => {
                   key={id}
                   className="md:basis-1/2 lg:basis-1/3 group"
                 >
-                  <div className="h-full p-1">
+                  <Link href={`/product/${slug}`} className="block h-full p-1">
                     <Card className="flex flex-col h-full py-4 border border-gray-200 shadow-none">
                       <CardContent className="relative flex items-center justify-center px-6 py-2 h-80 shrink-0 overflow-hidden">
                         <img
@@ -56,7 +57,11 @@ const FeaturedProducts = () => {
                               className="text-gray-600"
                             />
                             <IconButton
-                              onClick={() => addItem(product)}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                addItem(product);
+                              }}
                               icon={<ShoppingCart size={20} />}
                               className="text-gray-600"
                             />
@@ -78,7 +83,7 @@ const FeaturedProducts = () => {
                         )}
                       </div>
                     </Card>
-                  </div>
+                  </Link>
                 </CarouselItem>
               );
             })}

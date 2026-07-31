@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 interface IconButtonProps {
   icon: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
 }
 
