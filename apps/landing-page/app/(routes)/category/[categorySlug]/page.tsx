@@ -8,7 +8,10 @@ import SkeletonSchema from "@/components/skeletonSchema";
 import ProductCard from "@/components/product-card";
 import { ProductType } from "@/types/product";
 import { useState } from "react";
-import { getProductColor, hasClothingAttributes } from "@/lib/product-attributes";
+import {
+  getProductColor,
+  hasClothingAttributes,
+} from "@/lib/product-attributes";
 
 export default function Page() {
   const params = useParams();
@@ -25,20 +28,22 @@ export default function Page() {
     (filterColor === ""
       ? result
       : result.filter(
-          (product: ProductType) => getProductColor(product) === filterColor
+          (product: ProductType) => getProductColor(product) === filterColor,
         ));
 
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
       {result !== null && !loading && (
-        <h1 className="text-3xl font-medium">{result[0].category.name}</h1>
+        <h1 className="text-3xl font-medium ml-2 mb-4">
+          {result[0].category.name}
+        </h1>
       )}
       <Separator />
-      <div className="sm:flex sm:justify-between">
+      <div className="sm:flex sm:justify-between mt-8">
         {showColorFilter && (
           <FiltersControlCategory setFilterColor={SetFilterColor} />
         )}
-        <div className="grid gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
+        <div className="grid gap-5 mt-8 mb-12 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
           {loading && <SkeletonSchema grid={3} />}
           {filteredProducts !== null &&
             !loading &&
