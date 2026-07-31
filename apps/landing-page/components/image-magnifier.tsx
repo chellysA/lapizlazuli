@@ -58,7 +58,7 @@ const ImageMagnifier = (props: ImageMagnifierProps) => {
       onMouseLeave={() => setShowLens(false)}
       onMouseMove={handleMouseMove}
     >
-      <img src={src} alt={alt} className="block" />
+      <img src={src} alt={alt} className="block w-full h-full object-cover" />
       {showLens && (
         <div
           className="absolute border-2 border-white rounded-full pointer-events-none shadow-lg"

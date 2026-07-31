@@ -17,7 +17,7 @@ interface CarouselProductProps {
 const CarouselProduct = (props: CarouselProductProps) => {
   const { images } = props;
   return (
-    <div className="sm:px-16">
+    <div className="px-14 sm:px-16">
       <Carousel>
         <CarouselContent>
           {images?.length > 0 &&
@@ -26,7 +26,7 @@ const CarouselProduct = (props: CarouselProductProps) => {
                 <ImageMagnifier
                   src={image.url}
                   alt="Image product"
-                  className="rounded-lg"
+                  className="w-full aspect-square rounded-lg"
                 />
               </CarouselItem>
             ))}
