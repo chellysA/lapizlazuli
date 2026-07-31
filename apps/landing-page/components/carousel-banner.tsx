@@ -19,15 +19,10 @@ const CarouselBanner = () => {
   const showArrows = total > 1;
 
   const [index, setIndex] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(false);
-
+\
   useEffect(() => {
     setIndex(0);
   }, [total]);
-
-  useEffect(() => {
-    setIsExpanded(false);
-  }, [index]);
 
   const onPrevBtn = () => {
     const imgSlider = document.querySelector<HTMLElement>("#imgSlider");
