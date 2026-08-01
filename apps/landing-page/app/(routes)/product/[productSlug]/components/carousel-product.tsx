@@ -26,7 +26,7 @@ const CarouselProduct = (props: CarouselProductProps) => {
                 <ImageMagnifier
                   src={image.url}
                   alt="Image product"
-                  className="w-full aspect-square rounded-lg"
+                  className="w-full aspect-[3/4] rounded-lg"
                 />
               </CarouselItem>
             ))}

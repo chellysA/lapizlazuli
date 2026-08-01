@@ -44,9 +44,9 @@ const ProductCard = (props: ProductCardProps) => {
                 <Image
                   src={image.url}
                   alt="image"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
+                  width={600}
+                  height={800}
+                  className="object-cover w-full h-full"
                 />
               </div>
 
