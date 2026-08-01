@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { useGetCategories } from "@/api/useGetProducts";
 import { CategoryType } from "@/types/category";
 import { ResponseType } from "@/types/response";
@@ -73,10 +74,12 @@ const CarouselBanner = () => {
                 className="absolute left-0 origin-[calc(var(--carousel-size)/2)]"
                 style={{ transform: `rotate(${(360 / total) * i}deg)` }}
               >
-                <img
+                <Image
                   className={`w-[calc(var(--carousel-size)*0.380)] sm:w-[calc(var(--carousel-size)*0.3125)] max-w-none h-auto [transform:rotate(-90deg)_translateY(-30%)] animate-carousel-bounce ${TRANSITION}`}
                   src="/banner-bg-1.png"
                   alt=""
+                  width={500}
+                  height={500}
                 />
               </div>
             ))}
@@ -87,10 +90,12 @@ const CarouselBanner = () => {
                 className="absolute left-0 md:left-[-50px] origin-[calc(var(--carousel-size)/2)]"
                 style={{ transform: `rotate(${(360 / total) * i}deg)` }}
               >
-                <img
+                <Image
                   className="w-[calc(var(--carousel-size)*0.350)] sm:w-[calc(var(--carousel-size)*0.400)] max-w-none h-auto object-cover -rotate-90"
-                  src={category.images?.[0]?.url}
+                  src={category.images?.[0]?.url ?? ""}
                   alt={category.name}
+                  width={800}
+                  height={800}
                 />
               </div>
             ))}
@@ -104,7 +109,7 @@ const CarouselBanner = () => {
             {/* Contenedor principal: en móvil (por defecto) es fila (flex-row), en pantallas sm y superiores vuelve a columna */}
             <div className="flex flex-row sm:flex-col items-center sm:items-start sm:justify-start gap-4">
               {/* Título */}
-              <h2 className="text-lg sm:text-xl font-bold m-0">
+              <h2 className="text-lg sm:text-xl font-bold m-0 text-white md:text-black">
                 {currentCategory?.name}
               </h2>
               {/* Descripción (se mantiene oculta en móviles como tenías originalmente) */}
