@@ -19,9 +19,9 @@ const faqs = [
       "Lapislázuli es una tienda online venezolana creada con un compromiso social absoluto. Surgimos como respuesta a la emergencia causada por el terremoto, con el objetivo de convertir el comercio electrónico en una herramienta de ayuda humanitaria directa y real.",
   },
   {
-    question: "¿Es cierto que el 100% de las ganancias se dona?",
+    question: "¿Es cierto que Lapislázuli dona sus ganancias?",
     answer:
-      "¡Sí, el 100% sin excepciones! Todo el margen de ganancia generado por tus compras va directamente a la adquisición de insumos, asistencia básica y apoyo para la reconstrucción de las comunidades afectadas por el sismo.",
+      "Sí, donamos para la adquisición de insumos y asistencia básica a las personas que más lo necesitan.",
   },
   {
     question: "¿Cómo puedo estar seguro de a dónde van los fondos y donativos?",

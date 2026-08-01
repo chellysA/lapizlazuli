@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="p-6 text-center border rounded-lg border-gray-200 dark:border-gray-700">
           <p className="text-lg font-bold">
-            El 100% de las ganancias de cada venta se dona.
+            Donamos a las personas que más lo necesitan.
           </p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             lapislázuli es una tienda online venezolana creada tras el terremoto
