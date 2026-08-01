@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import Link from "next/link";
+import Image from "next/image";
 import SkeletonSchema from "./skeletonSchema";
 import { ProductType } from "@/types/product";
 import { Card, CardContent } from "./ui/card";
@@ -44,10 +45,12 @@ const FeaturedProducts = () => {
                   <Link href={`/product/${slug}`} className="block h-full p-1">
                     <Card className="flex flex-col h-full py-4 border border-gray-200 shadow-none">
                       <CardContent className="relative flex items-center justify-center px-6 py-2 h-80 shrink-0 overflow-hidden">
-                        <img
-                          src={`${images[0].url}`}
+                        <Image
+                          src={images[0].url}
                           alt="Image featured"
-                          className="object-cover w-full h-full rounded-md"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover rounded-md"
                         />
                         <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                           <div className="flex justify-center gap-x-6">

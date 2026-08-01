@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, MouseEvent } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface ImageMagnifierProps {
@@ -58,7 +59,13 @@ const ImageMagnifier = (props: ImageMagnifierProps) => {
       onMouseLeave={() => setShowLens(false)}
       onMouseMove={handleMouseMove}
     >
-      <img src={src} alt={alt} className="block w-full h-full object-cover" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        className="object-cover"
+      />
       {showLens && (
         <div
           className="absolute border-2 border-white rounded-full pointer-events-none shadow-lg"

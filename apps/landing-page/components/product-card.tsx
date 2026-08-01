@@ -1,5 +1,6 @@
 import { ProductType } from "@/types/product";
 import Link from "next/link";
+import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import { Expand, ShoppingCart } from "lucide-react";
 import IconButton from "./icon-button";
@@ -40,10 +41,12 @@ const ProductCard = (props: ProductCardProps) => {
             <CarouselItem key={image.id} className="group">
               {/* Contenedor con aspecto 3:4 forzado */}
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-md">
-                <img
-                  src={`${image.url}`}
+                <Image
+                  src={image.url}
                   alt="image"
-                  className="object-cover w-full h-full"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
                 />
               </div>
 
