@@ -60,7 +60,7 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <div className="max-w-4xl py-4 mx-auto sm:py-16 sm:px-24">
+    <div className="max-w-4xl px-6 py-4 mx-auto sm:py-16 sm:px-24">
       <h1 className="text-3xl font-bold sm:text-4xl">Preguntas Frecuentes</h1>
       <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">
         Todo lo que necesitas saber sobre Lapislázuli y nuestra causa.

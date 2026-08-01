@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl py-4 mx-auto sm:py-16 sm:px-24">
+    <div className="max-w-4xl px-6 py-4 mx-auto sm:py-16 sm:px-24">
       <h1 className="text-3xl font-bold sm:text-4xl">
         Una tienda online con el corazón en Venezuela.
       </h1>
