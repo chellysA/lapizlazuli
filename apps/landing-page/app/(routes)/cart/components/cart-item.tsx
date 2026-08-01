@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { getProductColor, getProductSize } from "@/lib/product-attributes";
 import { Minus, Plus, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface CartItemProps {
   product: CartItemType;
@@ -18,13 +19,15 @@ const CartItem = (props: CartItemProps) => {
   return (
     <li className="flex py-6 border-b">
       <div
-        className="cursor-pointer"
+        className="relative w-24 h-24 overflow-hidden rounded-md cursor-pointer sm:w-32 sm:h-32"
         onClick={() => router.push(`/product/${product.slug}`)}
       >
-        <img
-          src={`${product.images[0].url}`}
+        <Image
+          src={product.images[0].url}
           alt="Product"
-          className="w-24h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"
+          fill
+          sizes="(max-width: 640px) 96px, 128px"
+          className="object-cover"
         />
       </div>
       <div className="flex justify-between flex-1 px-6">
