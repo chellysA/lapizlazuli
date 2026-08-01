@@ -49,8 +49,8 @@ const FeaturedProducts = () => {
                           src={images[0].url}
                           alt="Image featured"
                           width={600}
-                          height={320}
-                          className="object-cover w-full h-full rounded-md"
+                          height={420}
+                          className="object-cover w-full h-full aspect-[3/4] rounded-md"
                         />
                         <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                           <div className="flex justify-center gap-x-6">
