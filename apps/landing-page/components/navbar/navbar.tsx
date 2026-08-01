@@ -3,7 +3,6 @@ import { BaggageClaim, Heart, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import MenuList from "./menu-list";
 import ItemsMenuMobile from "./items-menu-mobile";
-import ToggleTheme from "../theme/toggle-theme";
 import InstagramIcon from "../icons/instagram-icon";
 import { useCart } from "@/hooks/use-cart";
 import { useLovedProducts } from "@/hooks/use-loved-products";
