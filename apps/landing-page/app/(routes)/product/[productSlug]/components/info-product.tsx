@@ -6,6 +6,7 @@ import { formatPrice } from "@/lib/formarProce";
 import { ProductType } from "@/types/product";
 import { getProductColor, getProductSize } from "@/lib/product-attributes";
 import { Heart } from "lucide-react";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 export type InfoProductProps = {
   product: ProductType;
 };
@@ -19,7 +20,7 @@ const InfoProduct = (props: InfoProductProps) => {
   return (
     <div className="px-6">
       <div className="justify-between mb-3 sm:flex">
-        <h1 className="text-2xl">{product.productName}</h1>
+        <h1 className="text-2xl pt-6">{product.productName}</h1>
         <div className="flex items-center justify-between gap-3">
           {color && (
             <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
@@ -34,7 +35,7 @@ const InfoProduct = (props: InfoProductProps) => {
         </div>
       </div>
       <Separator className="my-4" />
-      <p>{product.description}</p>
+      <BlocksRenderer content={product.description} />
       <Separator className="my-4" />
 
       <p className="my-4 text-2xl">{formatPrice(product.price)}</p>

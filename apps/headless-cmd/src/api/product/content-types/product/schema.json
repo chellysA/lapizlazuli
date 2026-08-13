@@ -17,19 +17,11 @@
     "slug": {
       "type": "uid"
     },
-    "description": {
-      "type": "text"
-    },
     "images": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "active": {
       "type": "boolean"
@@ -52,6 +44,9 @@
         "product.jewelry-attributes",
         "product.clothing-attributes"
       ]
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }

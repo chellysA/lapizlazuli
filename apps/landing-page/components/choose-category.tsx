@@ -4,6 +4,7 @@ import { useGetCategories } from "@/api/useGetProducts";
 import { CategoryType } from "@/types/category";
 import { ResponseType } from "@/types/response";
 import Link from "next/link";
+import Image from "next/image";
 
 const ChooseCategory = () => {
   const { result, loading }: ResponseType = useGetCategories();
@@ -26,22 +27,24 @@ const ChooseCategory = () => {
                   href={`/category/${category.slug}`}
                   className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                   style={{
-                    backgroundImage: `url('${process.env.NEXT_PUBLIC_BACKEND_URL}${category.images[0].url}')`,
+                    backgroundImage: `url('${category.images[0].url}')`,
                   }}
                   title={category.name}
                   data-cy="category"
                 >
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${category.images[0].url}`}
+                  <Image
+                    src={category.images[0].url}
                     alt={category.name}
-                    className="max-w-[270px] transition duration-300 ease-in-out hover:scale-110 rounded-lg"
+                    width={800}
+                    height={800}
+                    className="max-w-[270px] h-auto transition duration-300 ease-in-out hover:scale-110 rounded-lg"
                   />
                   <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">
                     {category.name}
                   </p>
                 </Link>
               )
-            )
+            ),
           )}
       </div>
     </div>

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Separator } from "./ui/separator";
+import InstagramIcon from "./icons/instagram-icon";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const dataFooter = [
   { id: 1, name: "Sobre Nosotros", link: "/about" },
@@ -14,7 +16,7 @@ const Footer = () => {
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="p-6 text-center border rounded-lg border-gray-200 dark:border-gray-700">
           <p className="text-lg font-bold">
-            El 100% de las ganancias de cada venta se dona.
+            Donamos a las personas que más lo necesitan.
           </p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             lapislázuli es una tienda online venezolana creada tras el terremoto
@@ -35,6 +37,16 @@ const Footer = () => {
                 <Link href={item.link}>{item.name}</Link>
               </li>
             ))}
+            <li>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Síguenos en Instagram"
+              >
+                <InstagramIcon size={20} strokeWidth={1.5} />
+              </a>
+            </li>
           </ul>
         </div>
         <Separator className="my-6 border-gray-200 dark:border-gray-700 lg:my-8 " />

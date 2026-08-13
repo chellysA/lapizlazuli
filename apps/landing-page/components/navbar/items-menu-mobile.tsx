@@ -3,9 +3,11 @@
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { Popover, PopoverTrigger, PopoverContent } from "../ui/popover";
+import InstagramIcon from "../icons/instagram-icon";
 import { useGetCategories } from "@/api/useGetProducts";
 import { CategoryType } from "@/types/category";
 import { ResponseType } from "@/types/response";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const ItemsMenuMobile = () => {
   const { result, loading }: ResponseType = useGetCategories();
@@ -40,6 +42,15 @@ const ItemsMenuMobile = () => {
         <Link href="/faq" className="block py-2 font-medium">
           FAQs
         </Link>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 py-2 font-medium"
+        >
+          <InstagramIcon size={18} strokeWidth={1.5} />
+          Instagram
+        </a>
       </PopoverContent>
     </Popover>
   );

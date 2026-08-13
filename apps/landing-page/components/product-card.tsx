@@ -1,5 +1,6 @@
 import { ProductType } from "@/types/product";
 import Link from "next/link";
+import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import { Expand, ShoppingCart } from "lucide-react";
 import IconButton from "./icon-button";
@@ -28,20 +29,28 @@ const ProductCard = (props: ProductCardProps) => {
           </p>
         )}
         {size && (
-          <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full dark:bg-white dark:tet-black w-fit">
+          <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full dark:bg-white dark:text-black w-fit">
             {size}
           </p>
         )}
       </div>
-      <Carousel opts={{ align: "start" }} className="w-full ma-w-sm">
+
+      <Carousel opts={{ align: "start" }} className="w-full max-w-sm">
         <CarouselContent>
           {product.images.map((image) => (
             <CarouselItem key={image.id} className="group">
-              <img
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
-                alt="image"
-              />
-              <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
+              {/* Contenedor con aspecto 3:4 forzado */}
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-md">
+                <Image
+                  src={image.url}
+                  alt="image"
+                  width={600}
+                  height={800}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5 z-10">
                 <div className="flex justify-center gap-x-6">
                   <IconButton
                     onClick={() => router.push(`/product/${product.slug}`)}
@@ -57,7 +66,8 @@ const ProductCard = (props: ProductCardProps) => {
           ))}
         </CarouselContent>
       </Carousel>
-      <p className="text-2xl text-center">{product.productName}</p>
+
+      <p className="text-2xl text-center mt-2">{product.productName}</p>
       <p className="font-bold text-center">{formatPrice(product.price)}</p>
     </Link>
   );

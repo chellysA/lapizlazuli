@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { ChevronDown } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const BRAND_JOIN_MESSAGE =
   "Hola, quiero sumar mi marca a Lapislázuli y ser parte del movimiento.";
@@ -18,14 +19,18 @@ const faqs = [
       "Lapislázuli es una tienda online venezolana creada con un compromiso social absoluto. Surgimos como respuesta a la emergencia causada por el terremoto, con el objetivo de convertir el comercio electrónico en una herramienta de ayuda humanitaria directa y real.",
   },
   {
-    question: "¿Es cierto que el 100% de las ganancias se dona?",
+    question: "¿Es cierto que Lapislázuli dona sus ganancias?",
     answer:
-      "¡Sí, el 100% sin excepciones! Todo el margen de ganancia generado por tus compras va directamente a la adquisición de insumos, asistencia básica y apoyo para la reconstrucción de las comunidades afectadas por el sismo.",
+      "Sí, donamos para la adquisición de insumos y asistencia básica a las personas que más lo necesitan.",
   },
   {
     question: "¿Cómo puedo estar seguro de a dónde van los fondos y donativos?",
     answer:
       "La transparencia es nuestro valor principal. Documentamos y compartimos periódicamente, a través de nuestras redes sociales y canales oficiales, las entregas de donativos y el impacto real que logramos juntos gracias a tu compra.",
+    cta: {
+      label: "Síguenos en Instagram",
+      href: INSTAGRAM_URL,
+    },
   },
   {
     question: "¿Cuáles son los métodos de pago disponibles?",
@@ -55,7 +60,7 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <div className="max-w-4xl py-4 mx-auto sm:py-16 sm:px-24">
+    <div className="max-w-4xl px-6 py-4 mx-auto sm:py-16 sm:px-24">
       <h1 className="text-3xl font-bold sm:text-4xl">Preguntas Frecuentes</h1>
       <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">
         Todo lo que necesitas saber sobre Lapislázuli y nuestra causa.

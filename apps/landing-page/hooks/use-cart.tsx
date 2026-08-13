@@ -5,10 +5,14 @@ import { ProductType } from "@/types/product";
 import { toast } from "sonner";
 import { AlertCircle, ShoppingBag, StopCircle, Trash } from "lucide-react";
 
+export type CartItem = ProductType & { quantity: number };
+
 interface CartStore {
-  items: ProductType[];
+  items: CartItem[];
   addItem: (data: ProductType) => void;
   removeItem: (id: number) => void;
+  increaseQuantity: (id: number) => void;
+  decreaseQuantity: (id: number) => void;
   removeAll: () => void;
 }
 export const useCart = create(
@@ -26,7 +30,7 @@ export const useCart = create(
           );
         }
         set({
-          items: [...get().items, data],
+          items: [...get().items, { ...data, quantity: 1 }],
         });
         toast(
           <div className="flex items-center gap-2">
@@ -46,6 +50,24 @@ export const useCart = create(
         );
       },
 
+      increaseQuantity: (id: number) => {
+        set({
+          items: get().items.map((item) =>
+            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+          ),
+        });
+      },
+
+      decreaseQuantity: (id: number) => {
+        set({
+          items: get().items.map((item) =>
+            item.id === id
+              ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+              : item
+          ),
+        });
+      },
+
       removeAll: () => {
         set({ items: [] });
         toast(
@@ -59,6 +81,17 @@ export const useCart = create(
     {
       name: "cart-storage",
       storage: createJSONStorage(() => localStorage),
+      version: 1,
+      migrate: (persistedState) => {
+        const state = persistedState as CartStore;
+        return {
+          ...state,
+          items: (state?.items ?? []).map((item) => ({
+            ...item,
+            quantity: item.quantity ?? 1,
+          })),
+        };
+      },
     }
   )
 );

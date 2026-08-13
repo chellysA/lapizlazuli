@@ -3,16 +3,21 @@ import { BaggageClaim, Heart, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import MenuList from "./menu-list";
 import ItemsMenuMobile from "./items-menu-mobile";
-import ToggleTheme from "../theme/toggle-theme";
+import InstagramIcon from "../icons/instagram-icon";
 import { useCart } from "@/hooks/use-cart";
 import { useLovedProducts } from "@/hooks/use-loved-products";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const Navbar = () => {
   const router = useRouter();
   const cart = useCart();
   const { lovedItems } = useLovedProducts();
+  const cartQuantity = cart.items.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
   return (
-    <div className="flex items-center justify-between p-4 mx-auto cursor-pointer sm:max-w-4xl md:max-w-6xl">
+    <div className="flex items-center justify-between p-4 mx-auto cursor-pointer">
       <h1 className="text-3xl font-bold" onClick={() => router.push("/")}>
         lapislázuli
       </h1>
@@ -32,7 +37,7 @@ const Navbar = () => {
         ) : (
           <div className="flex gap-1" onClick={() => router.push("/cart")}>
             <BaggageClaim strokeWidth={1} className="cursor-pointer" />
-            <span>{cart.items.length}</span>
+            <span>{cartQuantity}</span>
           </div>
         )}
         <Heart
@@ -43,7 +48,15 @@ const Navbar = () => {
           onClick={() => router.push("/loved-products")}
         />
         {/* <User strokeWidth={1} className="cursor-pointer" /> */}
-        <ToggleTheme />
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Síguenos en Instagram"
+        >
+          <InstagramIcon strokeWidth={1} className="cursor-pointer" />
+        </a>
+        {/* <ToggleTheme /> */}
       </div>
     </div>
   );
