@@ -1,3 +1,5 @@
+import { BlocksContent } from "@strapi/blocks-react-renderer";
+
 export type JewelryAttributes = {
   __component: "product.jewelry-attributes";
   id: number;
@@ -17,7 +19,7 @@ export type ProductType = {
   id: number;
   productName: string;
   slug: string;
-  description: string;
+  description: BlocksContent;
   active: boolean;
   isFeatured: boolean;
   price: number;

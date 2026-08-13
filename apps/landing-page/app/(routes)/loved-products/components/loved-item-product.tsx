@@ -7,6 +7,7 @@ import { ProductType } from "@/types/product";
 import { getProductColor, getProductSize } from "@/lib/product-attributes";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface LovedItemProductProps {
   product: ProductType;
@@ -25,11 +26,16 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
   };
   return (
     <li className="flex py-6 border-b">
-      <div onClick={() => router.push(`/product/${product.slug}`)}>
-        <img
-          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
+      <div
+        className="relative w-24 h-24 overflow-hidden rounded-md sm:w-32 sm:h-32"
+        onClick={() => router.push(`/product/${product.slug}`)}
+      >
+        <Image
+          src={product.images[0].url}
           alt="Product"
-          className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"
+          fill
+          sizes="(max-width: 640px) 96px, 128px"
+          className="object-cover"
         />
       </div>
       <div className="flex justify-between flex-1 px-6">
@@ -60,7 +66,7 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
         <div>
           <button
             className={cn(
-              "rounded-full flex items-center justify-center bg-white border shadow-md p-1 hover-scale-110 transition"
+              "rounded-full flex items-center justify-center bg-white border shadow-md p-1 hover-scale-110 transition",
             )}
           >
             <X size={20} onClick={() => removeLovedItem(product.id)} />

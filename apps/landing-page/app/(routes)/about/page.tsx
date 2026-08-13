@@ -1,16 +1,18 @@
 import { Separator } from "@/components/ui/separator";
 import JoinMovement from "@/components/join-movement";
+import InstagramIcon from "@/components/icons/instagram-icon";
 import Link from "next/link";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 export const metadata = {
   title: "Nuestra Causa | Lapislázuli",
   description:
-    "Lapislázuli es una tienda online venezolana que destina el 100% de sus ganancias a la recuperación de las comunidades afectadas por el terremoto en Venezuela.",
+    "Lapislázuli es una tienda online venezolana que dona sus ganancias a la recuperación de las comunidades afectadas por el terremoto en Venezuela.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl py-4 mx-auto sm:py-16 sm:px-24">
+    <div className="max-w-4xl px-6 py-4 mx-auto sm:py-16 sm:px-24">
       <h1 className="text-3xl font-bold sm:text-4xl">
         Una tienda online con el corazón en Venezuela.
       </h1>
@@ -23,12 +25,11 @@ export default function AboutPage() {
         propósito vital.
       </p>
       <p className="mt-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-        Desde el primer día, establecimos un compromiso inquebrantable: el 100%
-        de nuestras ganancias se destina íntegramente a donativos y fondos de
-        recuperación para las familias damnificadas. Al elegir Lapislázuli, no
-        solo adquieres un artículo creado con dedicación; te conviertes en un
-        pilar fundamental para quienes hoy necesitan reconstruir sus hogares y
-        sus vidas.
+        Desde el primer día, establecimos un compromiso claro: donar nuestras
+        ganancias a donativos y fondos de recuperación para las familias
+        damnificadas. Al elegir Lapislázuli, no solo adquieres un artículo
+        creado con dedicación; te conviertes en un pilar fundamental para
+        quienes hoy necesitan reconstruir sus hogares y sus vidas.
       </p>
 
       <Separator className="my-10 border-gray-200 dark:border-gray-700" />
@@ -38,10 +39,10 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold">Misión</h2>
           <p className="mt-3 leading-relaxed text-gray-700 dark:text-gray-300">
             Ofrecer productos de calidad a través de nuestra tienda online con
-            un propósito humano y urgente: destinar el 100% de nuestras
-            ganancias a la asistencia, recuperación y apoyo de las comunidades
-            afectadas por el terremoto en Venezuela. Transformamos cada venta en
-            ayuda directa y esperanza.
+            un propósito humano y urgente: donar nuestras ganancias a la
+            asistencia, recuperación y apoyo de las comunidades afectadas por el
+            terremoto en Venezuela. Transformamos cada venta en ayuda directa y
+            esperanza.
           </p>
         </div>
         <div>
@@ -59,10 +60,10 @@ export default function AboutPage() {
 
       <div className="p-6 text-center border rounded-lg border-gray-200 dark:border-gray-700">
         <p className="text-xl font-bold">
-          El 100% de las ganancias de cada venta se dona.
+          Donamos a las personas que más lo necesitan.
         </p>
         <p className="mt-2 text-gray-700 dark:text-gray-300">
-          Cada compra que hace s se convierte en ayuda directa para Venezuela.
+          Cada compra que haces se convierte en ayuda directa para Venezuela.
         </p>
         <Link
           href="/"
@@ -70,6 +71,15 @@ export default function AboutPage() {
         >
           Ver productos
         </Link>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 mt-4 text-sm font-medium hover:underline"
+        >
+          <InstagramIcon size={18} strokeWidth={1.5} />
+          Síguenos en Instagram
+        </a>
       </div>
 
       <div className="-mx-6 sm:-mx-24">
